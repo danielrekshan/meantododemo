@@ -1,11 +1,3 @@
-<style type="text/css">
-  .sortorder:after {
-    content: '\25b2';
-  }
-  .sortorder.reverse:after {
-    content: '\25bc';
-  }
-</style>
 <div class="container">
   <h1>Todos: <span class="label label-info">{{ todos.length }}</span></h1>
   
@@ -13,38 +5,30 @@
         
 <!-- TODO LIST -->
   <div id="todo-list" class="row">
-    
-  
-  
-  <table style="width:100%;">
-    <tr>
-      <th class="">
-        Mark Complete:
-      </th>
-      <th class="text-center">
-
-        <a href="" ng-click="order('text')">Text</a>
-        <span class="sortorder" ng-show="predicate == 'text'" ng-class="{reverse:reverse}"></span>
-      </th>
-      <th class="text-right">
-        <a href="" ng-click="order('time')">Created at:</a>
-        <span class="sortorder" ng-show='predicate == "time"' ng-class="{reverse:reverse}"></span>
-      </th>
-      
-    </tr>
-    <tr ng-repeat="todo in todos | orderBy:predicate:reverse">
-      <td><input type="checkbox" ng-click="deleteTodo(todo._id)"></td>
-      <td>
-        <h3>{{todo.text}}</h3>
-        
-      </td>
-      <td class="text-right">
-          {{todo.time | date:"h:mma 'on' MM/dd/yyyy"}}
+    <table style="width:100%;">
+      <tr>
+        <th class="">
+          Mark Complete:
+        </th>
+        <th class="text-center">
+          <a href="" ng-click="order('text')">Text</a>
+          <span class="sortorder" ng-show="predicate == 'text'" ng-class="{reverse:reverse}"></span>
+        </th>
+        <th class="text-right">
+          <a href="" ng-click="order('time')">Created at:</a>
+          <span class="sortorder" ng-show='predicate == "time"' ng-class="{reverse:reverse}"></span>
+        </th>
+      </tr>
+      <tr ng-repeat="todo in todos | orderBy:predicate:reverse">
+        <td><input type="checkbox" ng-click="deleteTodo(todo._id)"></td>
+        <td>
+          <h3>{{todo.text}}</h3>
         </td>
-      
-    </tr>
-  </table>
-    </div>
+        <td class="text-right">
+            {{todo.time | date:"h:mma 'on' MM/dd/yyyy"}}
+          </td>
+      </tr>
+    </table>
   </div>
 
 <!-- FORM TO CREATE TODOS -->
@@ -52,7 +36,6 @@
     <div class="col-sm-8 col-sm-offset-2 text-center">
       <form>
         <div class="form-group">
-
           <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
           <input type="text" class="form-control input-lg text-center" placeholder="Task..." ng-model="formData.text">
         </div>
@@ -62,6 +45,5 @@
       </form>
     </div>
   </div>
-
 
 </div>

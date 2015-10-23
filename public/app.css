@@ -1,7 +1,12 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .vcenter {
-    
     vertical-align: middle!important;
-    
+}
+
+.sortorder:after {
+	content: '\25b2';
+}
+.sortorder.reverse:after {
+	content: '\25bc';
 }

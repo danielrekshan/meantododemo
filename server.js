@@ -14,35 +14,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- var Todo = mongoose.model('Todo', {
+var Todo = mongoose.model('Todo', {
         text : String,
         time : Date
     });
 
-
-
-
-
-
-
-
-
- app.get('/api/todos', function(req, res) {
+app.get('/api/todos', function(req, res) {
 
         // use mongoose to get all todos in the database
         Todo.find(function(err, todos) {
@@ -77,7 +54,6 @@ app.use(methodOverride());
 
     });
 
-    // delete a todo
     app.delete('/api/todos/:todo_id', function(req, res) {
         Todo.remove({
             _id : req.params.todo_id
@@ -94,19 +70,9 @@ app.use(methodOverride());
         });
     });
 
-
-
   app.get('*', function(req, res) {
         res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
-
-
-
-
-
-
-
-
 
 app.listen(8080);
 console.log("App listening on port 8080");

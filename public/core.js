@@ -1,27 +1,25 @@
 var todoApp = angular.module('todoApp', ['ui.bootstrap']);
+todoApp.config(function($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl : 'home.html',
+            controller  : 'mainController'
+        })
+        .when('/about', {
+            templateUrl : 'about.html'
+        })
+        .when('/features', {
+            templateUrl : 'features.html'
+        })
+        .when('/references', {
+            templateUrl : 'references.html'
+        });
+});
 
-
-    todoApp.config(function($routeProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl : 'home.html',
-                controller  : 'mainController'
-            })
-            .when('/about', {
-                templateUrl : 'about.html'
-            })
-            .when('/features', {
-                templateUrl : 'features.html'
-            })
-            .when('/references', {
-                templateUrl : 'references.html'
-            });
-    });
-
-  angular.module('orderByExample', [])
+angular.module('orderByExample', [])
     .controller('ExampleController', ['$scope', function($scope) {
       
-    }]);
+}]);
 
 function NavBarCtrl($scope) {
     $scope.isCollapsed = true;
